@@ -2,29 +2,11 @@ import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["app.bdwebai.com", "sweepstake.webjuwa.com","app.socialspins777.com",],
+    domains: ["app.instantspinz.com",],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'app.bdwebai.com',
-        port: '',
-        pathname: '/storage/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'sweepstake.webjuwa.com',
-        port: '',
-        pathname: '/storage/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'app.getfirekirin.com',
-        port: '',
-        pathname: '/storage/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'app.socialspins777.com',
+        hostname: 'app.instantspinz.com',
         port: '',
         pathname: '/storage/**',
       },
