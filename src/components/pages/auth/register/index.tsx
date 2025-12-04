@@ -87,7 +87,7 @@ const validationSchema = Yup.object().shape({
         .max(new Date(), 'Date of birth cannot be in the future')
         .test('age', 'You must be at least 18 years old', function (value) {
             if (!value) return true;
-            const cutoff = dayjs().subtract(18, 'years');
+            const cutoff = dayjs().subtract(21, 'years');
             return dayjs(value).isBefore(cutoff);
         }),
     first_name: Yup.string().required('First name is required'),
