@@ -18,6 +18,8 @@ export default function AssureError() {
     const id = searchParams.get("user_id");
     const hash = searchParams.get("hash");
 
+
+
     const [assureFail, { isLoading }] = useAssureFailMutation();
 
     useEffect(() => {
