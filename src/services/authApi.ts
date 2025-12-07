@@ -85,7 +85,14 @@ export const authApi = createApi({
                     },
                 })
         }),
+        assureFail: builder.mutation<void, { id: string; hash: string }>({
+            query: ({ id, hash }) => ({
+                url: `assure/fail`,
+                method: "POST",
+                body: { user_id: id, hash }
+            })
+        })
     })
 })
 
-export const { useLoginMutation, useRegisterUserMutation, useSendVerificationLinkAgainMutation, useForgotPasswordMutation, useVerifyOTPMutation, useResetPasswordMutation, useVerifyEmailMutation } = authApi;
+export const { useLoginMutation, useRegisterUserMutation, useSendVerificationLinkAgainMutation, useForgotPasswordMutation, useVerifyOTPMutation, useResetPasswordMutation, useVerifyEmailMutation, useAssureFailMutation } = authApi;
