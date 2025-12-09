@@ -1,10 +1,9 @@
+import GlassWrapper from '@/components/molecules/GlassWrapper'
 import GoldCoinIcon from '@/icons/GoldCoinIcon'
-import { Box, Button, OutlinedInput } from '@mui/material'
+import { Box } from '@mui/material'
 import { Coin } from '@wandersonalwes/iconsax-react'
 import Link from 'next/link'
-import React from 'react'
 import CoinCalculator from './CoinCalculator'
-import GlassWrapper from '@/components/molecules/GlassWrapper'
 
 export default function BuyCoinSinlgeGame({ slug }: { slug: string }) {
     const packs = [
@@ -65,7 +64,7 @@ export default function BuyCoinSinlgeGame({ slug }: { slug: string }) {
                                         </div>
                                         <div className="bonus">
                                             <strong className='text-[16px] block'>+{pack.bonus}</strong>
-                                            <span className='text-[12px]'>bonus</span>
+                                            <span className='text-[12px]'>Free Sweepscoin</span>
                                         </div>
                                     </div>
 

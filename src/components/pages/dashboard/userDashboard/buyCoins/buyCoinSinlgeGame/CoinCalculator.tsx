@@ -4,9 +4,8 @@ import GlassWrapper from '@/components/molecules/GlassWrapper';
 import GoldCoinIcon from '@/icons/GoldCoinIcon';
 import { Box, Button, OutlinedInput } from '@mui/material';
 import { Coin } from '@wandersonalwes/iconsax-react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function CoinCalculator({ slug }: { slug: string }) {
     const [amount, setAmount] = useState<number | "">("");
@@ -72,7 +71,7 @@ export default function CoinCalculator({ slug }: { slug: string }) {
                                     </p>
                                 </div>
                                 <div className="bonus">
-                                    <strong className='text-[16px] block'>+ {amount} Bonus</strong>
+                                    <strong className='text-[16px] block'>+ {amount} Free Sweepscoin</strong>
                                     {/* <span className='text-[12px]'>bonus</span> */}
                                 </div>
                             </div>
