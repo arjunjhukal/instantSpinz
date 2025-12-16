@@ -25,7 +25,7 @@ const validationSchema = Yup.object({
             );
         }
     ),
-    photoid_number: Yup.string().required("Photo ID is required"),
+    photoid_number: Yup.string().required("SSN is required"),
 });
 
 export type WithdrawlFormValues = {

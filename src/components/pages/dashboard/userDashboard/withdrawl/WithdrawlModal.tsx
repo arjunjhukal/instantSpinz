@@ -72,14 +72,14 @@ export default function WithdrawlModal({
 
                 <form onSubmit={formik.handleSubmit} className="flex flex-col gap-3">
                     <div className="relative">
-                        <InputLabel htmlFor="photoid_number" className="text-start">Photo ID <span className="text-red-500">*</span></InputLabel>
+                        <InputLabel htmlFor="photoid_number" className="text-start">SSN <span className="text-red-500">*</span></InputLabel>
                         <OutlinedInput
                             name="photoid_number"
                             id="photoid_number"
                             value={formik.values.photoid_number}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            placeholder="Enter your photo ID"
+                            placeholder="Enter your SSN"
                         />
                         {
                             formik.touched.photoid_number && formik.errors.photoid_number ?
