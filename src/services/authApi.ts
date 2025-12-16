@@ -11,7 +11,7 @@ export const authApi = createApi({
             query: ({ email,
                 username,
                 password,
-                password_confirmation, first_name, middle_name, last_name, phone, photoid_number, dob, city, pob, zip_code, street }) => ({
+                password_confirmation, first_name, middle_name, last_name, phone, photoid_number, dob, city, pob, zip_code, street,agree }) => ({
                     url: `/api/auth/register`,
                     method: "POST",
                     body: {
@@ -28,7 +28,7 @@ export const authApi = createApi({
                         city,
                         pob,
                         street,
-                        zip_code
+                        zip_code,agree
                     },
                 }),
 

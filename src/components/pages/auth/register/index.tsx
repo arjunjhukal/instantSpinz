@@ -5,7 +5,7 @@ import { useAppDispatch } from '@/hooks/hook';
 import { PATH } from '@/routes/PATH';
 import { useRegisterUserMutation } from '@/services/authApi';
 import { showToast, ToastVariant } from '@/slice/toastSlice';
-import { Box, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -97,6 +97,7 @@ const validationSchema = Yup.object().shape({
     street: Yup.string().required("Street Name is required"),
     zip_code: Yup.string().required("Zip Code is required"),
     pob: Yup.string().required("State is required"),
+    agree: Yup.boolean().required().oneOf([true], 'You must agree to the terms and conditions')
 })
 
 export default function RegisterPage() {
@@ -118,6 +119,7 @@ export default function RegisterPage() {
         pob: '',
         street: '',
         zip_code: '',
+        agree: true
     }
     const { handleSubmit, handleBlur, handleChange, errors, dirty, values, touched, setFieldValue, setFieldTouched } = useFormik(
         {
@@ -140,7 +142,8 @@ export default function RegisterPage() {
                         city: values.city,
                         pob: values.pob,
                         street: values.street,
-                        zip_code: values.zip_code
+                        zip_code: values.zip_code,
+                        agree: values.agree
                     }).unwrap();
 
                     dispatch(
@@ -151,7 +154,6 @@ export default function RegisterPage() {
                         }),
                     );
                     console.log("url", response?.data?.redirect_url)
-                    // router.replace(`${PATH.AUTH.VERIFY_EMAIL.ROOT}?email=${values.emailAddress}`);
                     router.replace(response?.data?.redirect_url || "");
                 }
                 catch (e: any) {
@@ -279,16 +281,14 @@ export default function RegisterPage() {
                         {/* Photo ID */}
                         <div className="col-span-2 lg:col-span-2">
                             <div className="input__field">
-                                <InputLabel htmlFor="photoid_number">SSN <span className="text-red-500">*</span></InputLabel>
-                                <OutlinedInput
-                                    fullWidth
-                                    id="photoid_number"
+                                {/* <InputLabel htmlFor="photoid_number">SSN <span className="text-red-500">*</span></InputLabel> */}
+                                <PasswordField
+                                    label='SSN'
                                     name="photoid_number"
                                     placeholder="Enter SSN"
                                     value={values.photoid_number}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    sx={formFieldSx}
                                 />
                                 <span className="error">{touched.photoid_number && errors.photoid_number}</span>
                             </div>
@@ -528,6 +528,14 @@ export default function RegisterPage() {
                                     error={touched.confirmPassword ? errors.confirmPassword : undefined}
                                 />
                             </div>
+                        </div>
+                        <div className="col-span-6">
+                            <FormControlLabel
+                                control={<Checkbox
+                                    checked={values.agree}
+                                    onChange={() => setFieldValue("agree", !values.agree)}
+                                />}
+                                label="I agree to the terms and conditions" />
                         </div>
                     </div>
                     <div className="action__group text-center flex flex-col gap-4 mt-8">

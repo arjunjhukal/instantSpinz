@@ -27,7 +27,7 @@ export interface LoginResponse {
         access_token: string,
         // expires_in: 3600,
         user: User,
-        redirect_url:string;
+        redirect_url: string;
     }
     message: string
 }
@@ -44,4 +44,5 @@ export interface RegisterProps extends LoginProps {
     pob: string;
     street: string;
     zip_code: string;
+    agree: boolean;
 }
