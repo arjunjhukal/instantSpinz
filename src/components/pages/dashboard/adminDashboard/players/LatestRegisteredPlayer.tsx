@@ -11,8 +11,8 @@ export default function LatestRegisteredPlayer() {
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(6);
     const { data, isLoading: loadingPlayer } = useGetAllPlayerQuery({
-        page,
-        per_page: pageSize,
+        pageIndex:page,
+        pageSize: pageSize,
     });
 
     const columns = useMemo<ColumnDef<PlayerItem>[]>(() => [
